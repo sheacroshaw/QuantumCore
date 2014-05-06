@@ -1,0 +1,72 @@
+<div>
+	<div class="act-contain">
+
+		<div class="selector">
+
+			<div class="selector-form">
+				<form class="form-inline" role="form">
+				  <div class="form-group">
+				    
+				    <input type="text" class="form-control"  placeholder="Search" ng-model="activitySearch">
+				  </div>
+				  <button type="submit" class="btn btn-primary pull-right"  ng-click="addCustomActivity()">Add</button>
+				</form>
+			</div>
+			<div class="selector-list">
+				<ul class="list-group">
+					<li  
+						class="list-group-item large-list-item" 
+						ng-repeat="a in activitiesList  | filter:activitySearch | orderBy:'Description'" 
+						ng-click="addActivity(a)">
+						{{a.Description}}
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="list">
+			<div class="list-header"></div>
+			<div class="list-list">
+			
+				<div class="table-contain">
+					<table class="table">
+						<tbody>
+							<tr class="header-row">
+								<td>Description</td>
+								<td>From</td>
+								<td>To</td>
+								<td>Hours</td>
+								<td></td>
+							</tr>
+						</tbody>
+						<tbody ng-repeat="a in activities">				
+							<tr>
+								<td>
+									<input class="form-control input-lg" type="text" ng-show="a.isCustom" ng-model="a.Description" />
+									<strong ng-show="!a.isCustom">{{a.Description}}</strong>
+								</td>
+								<td><input class="form-control input-lg" type="tel" ng-model="a.from" ng-change="updateHours($index)"></td>
+								<td>
+									<input class="form-control input-lg" type="tel" 
+										ng-model="a.to" 
+										ng-change="setNext($index);updateHours($index);updateHours($index + 1)">
+								</td>
+								<td><input class="form-control input-lg" type="tel" ng-model="a.hours"></td>
+								<td><button class="btn btn-danger btn-lg pull-right" ng-click="removeActivity($index)">Remove</button></td>
+							</tr>	
+							<tr class="bottom-row">
+								<td colspan="5">
+									<input class="form-control input-lg" type="text"  ng-model="a.notes" placeholder="Notes">
+								</td>
+							</tr>			
+						</tbody>
+					</table>
+				</div>
+				<!-- <div class="list-footer">
+					<a href="#/hole"><button class="btn btn-primary btn-lg " >Back</button></a>
+					<a href="#/consumables"><button class="btn btn-primary btn-lg " >Next</button></a>
+				</div> -->
+			</div><!-- end of list-list-->
+		</div>		
+	</div>
+</div>

@@ -1,0 +1,103 @@
+<div>
+	
+	<div class="left">
+		<h2>
+			Shift Detail
+		</h2>
+		<table class="shift-detail-no-select">
+			<tbody>
+				<tr>
+					<td>Rig</td>
+					<td>
+						{{details.names.selectedRigName}}
+					</td>
+					<td>Client</td>
+					<td>
+						{{details.names.selectedClientName}}
+					</td>
+				</tr>
+				<tr>
+					<td>Shift</td>
+					<td>
+						{{details.names.selectedShiftName}}
+					</td>
+					<td>Job</td>
+					<td>
+						{{details.names.selectedJobName}}
+					</td>
+				</tr>
+				<tr>
+					<td>Date</td>
+					<td>
+						<!-- <input type="text"> -->
+				    
+		            <p class="input-group">
+		              <input 
+		              	type="text" 
+		              	class="form-control" 
+		              	datepicker-popup="{{format}}" 
+		              	ng-model="details.names.date" 
+		              	is-open="opened" 		              	
+		              	datepicker-options="dateOptions" 
+		              	ng-required="true" 
+		              	close-text="Close"
+		              	ng-click="open($event)" />
+		            </p>
+					</td>
+		
+					<td>Contract</td>
+					<td>
+						{{details.names.selectedContractName}}
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Location</td>
+					<td>
+						{{details.names.selectedLocationName}}
+					</td>
+				</tr>
+		<!-- 			<tr>
+					<td>Site</td>
+					<td>
+						<input disabled type="text" ng-model="details.site">
+					</td>
+				</tr> -->
+				<!-- <tr>
+					<td>
+						<input disabled type="text" ng-model="details.names.selectedShiftName">
+					</td>
+					<td><input type="text" ng-model="details.site"></td>
+				</tr> -->
+			</tbody>
+		</table>
+	</div>
+	<div class="left">
+		<h2>Safety</h2>
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						Was there a safety incident today?
+						<input type="checkbox" ng-model="safety.incident">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Description
+						<br>
+						<textarea name="" id="" cols="50" rows="2" ng-model="safety.incident_description"></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="clearfix"></div>
+
+	<div class="bottom-buttons">
+		<a href="#/pre_shift"><button class="btn btn-default btn-lg">Back</button></a>
+		<a href="#/hole"><button class="btn btn-default btn-lg">Next</button></a>
+	</div>
+
+</div>

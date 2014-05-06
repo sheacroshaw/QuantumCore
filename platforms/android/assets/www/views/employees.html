@@ -1,0 +1,91 @@
+<div class="employee-page">
+	<div class="safety">
+		<h2>Safety</h2>
+		<table class="table">
+			<tbody>
+				<tr>
+					<td>
+						Was there a <br>safety incident today?
+						<input type="checkbox" ng-model="safety.incident">
+					</td>
+					<td><span class="pull-right">Description</span></td>
+					<td>
+						<textarea name="" id="" cols="30" rows="2" ng-model="safety.incident_description"></textarea>
+					</td>
+					<td>Date</td>
+					<td >
+						<p class="input-group">
+              <input 
+              	id="date-holder"
+              	type="text" 
+              	class="form-control" 
+              	datepicker-popup="{{format}}" 
+              	ng-model="details.names.date" 
+              	is-open="opened" 		              	
+              	datepicker-options="dateOptions" 
+              	ng-required="true" 
+              	close-text="Close"
+              	ng-click="open($event)" />
+		        </p>
+					</td>
+				</tr>
+			</tbody>
+		</table>		
+	</div>
+	<hr class="employee-page">
+	<div class="act-emp">
+		<div class="selector">
+			<div class="selector-form">
+				<form class="form-inline" role="form">
+				  <div class="form-group">				    
+				    <input type="text" class="form-control"  placeholder="Search" ng-model="searchEmployees">
+				  </div>
+				</form>
+			</div>
+			<div class="selector-list">
+				<ul  class="list-group">
+					<li class="list-group-item large-list-item" ng-repeat="c in employeeList | orderBy:c.Name | filter:searchEmployees" ng-click="addEmployee(c)">
+						{{c.Name}}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="list">
+			<div class="list-header"></div>
+			<div class="list-list">			
+				<div class="table-contain">
+					<table class="table">
+						<tbody>
+							<tr class="header-row">
+								<td>Employee</td>
+								<td>Hours</td>
+								<td>Travel</td>
+								<td>Perdiem</td>
+								<td></td>
+							</tr>
+							<tr ng-repeat="e in selected_employees">
+								<td>{{e.Name}}</td>
+								<td>
+									<input class="form-control input-lg" type="tel" ng-model="e.hours">
+								</td>
+								<td>
+									<input class="form-control input-lg" type="tel" ng-model="e.travel">
+								</td>
+								<td>
+									<input class="form-control input-lg" type="tel" ng-model="e.perdiem">
+								</td>
+								<td>
+									<button class="btn btn-primary btn-lg pull-right" ng-click="removeEmp($index)">remove</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- <div class="list-footer">
+					<a href="#/shift"><button class="btn btn-primary btn-lg " >Back</button></a>
+					<a href="#/hole"><button class="btn btn-primary btn-lg " >Next</button></a>
+				</div> -->
+			</div><!-- end of list-list-->
+		</div>		
+	</div>
+</div>

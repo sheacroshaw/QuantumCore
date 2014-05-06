@@ -1,0 +1,101 @@
+<div>
+
+	<div class="fuel-left">
+		<div class="left-block">
+
+			<span class="h2">Fuel Usage</span>
+
+			<table class="table">
+				<tbody>
+					<tr>
+						<td></td>
+						<td>Qty</td>
+						<td>Price/Gal</td>
+						<td>Total</td>
+						<td>Vendor</td>
+					</tr>
+					<tr>
+						<td>Diesel (Red)</td>
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="fuel.redDiesel.qty">
+						</td>
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="fuel.redDiesel.price">
+						</td>
+						<td> {{ (fuel.redDiesel.qty || 0) * (fuel.redDiesel.price || 0) | number }} </td>
+						<td>
+							<input  class="form-control input-lg" type="text" ng-model="fuel.redDiesel.vendor">
+						</td>
+					</tr>
+					<tr>
+						<td>Diesel (Clear)</td>
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="fuel.clearDiesel.qty">
+						</td>
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="fuel.clearDiesel.price">
+						</td>
+						<td> {{ (fuel.clearDiesel.qty || 0) * (fuel.clearDiesel.price || 0) | number }} </td>
+						<td>
+							<input  class="form-control input-lg" type="text" ng-model="fuel.clearDiesel.vendor">
+						</td>
+					</tr>
+					<tr>
+						<td>Unleaded</td>
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="fuel.unleaded.qty">
+						</td>
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="fuel.unleaded.price">
+						</td>
+						<td> {{ (fuel.unleaded.qty || 0) * (fuel.unleaded.price || 0) | number }} </td>
+						<td>
+							<input  class="form-control input-lg" type="text" ng-model="fuel.unleaded.vendor">
+						</td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>
+		<div class="left-block">
+
+			<span class="h2">Water Loads</span>
+			<button class="btn btn-primary btn-lg" ng-click="addWater()">Add Row</button>
+			
+			<table class="table">
+				<tbody>
+					<tr>
+						<td># of Loads</td>
+						<td>Tank Size</td>
+						<td>Total</td>
+						<td></td>
+					</tr>
+					<tr ng-repeat="w in water">
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="w.loads">
+						</td>
+						<td>
+							<input  class="form-control input-lg" type="tel" ng-model="w.tankSize">
+						</td>
+						<td>
+							<button class="btn btn-danger btn-lg" ng-click="removeWater($index)">Remove</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div> <!-- end fuel left -->
+	<div class="fuel-left">
+		<div class="assets">
+			<span class="h2">Assets</span>
+			<div class="asset-no">
+				<div asset-select-no-input></div>
+			</div>		
+		</div>
+	</div>
+
+<!-- 	<div class="bottom-buttons">
+		<a href="#/consumables"><button class="btn btn-primary btn-lg">Back</button></a>
+		<a href="#/notes"><button class="btn btn-primary btn-lg">Next</button></a>
+	</div> -->
+</div>

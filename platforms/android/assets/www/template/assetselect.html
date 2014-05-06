@@ -1,0 +1,55 @@
+<div>
+
+	<div class="assets">
+		<table class="table">
+			<tbody>
+				<tr class="header-row">
+					<td>Asset</td>
+					<td>Unit #</td>
+					<td>Rental</td>
+					<!-- <td>Hours</td> -->
+					<td></td>
+				</tr>
+				<tr ng-repeat="a in assets">
+					<td>{{a.Equipment_Name}}</td>
+					<td>
+						<input class="form-control input-lg" type="text" ng-model="a.Unit_Number">						
+					</td>
+					<!-- <td>
+						<input class="small" type="tel" ng-model="a.hours">
+					</td> -->
+					<td>
+						<input type="checkbox" ng-model="a.Rental">
+					</td>
+					<td></td>
+				</tr>
+				<tr ng-repeat="a in customAssets">
+					<td>
+						<input class="form-control input-lg" type="text" placeholder="Custom" ng-model="a.Equipment_Name">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="text" ng-model="a.Unit_Number" >
+					</td>
+					<td>
+						<input type="checkbox" ng-model="a.Rental">
+					</td>
+					<!-- <td>
+						<input class="small"  type="tel" ng-model="a.hours">
+					</td> -->
+					<td class="two-button-td ">
+						<button 
+							class="btn btn-danger btn-lg"
+							ng-click="removeCustomAsset($index)" 
+							ng-show="$index <= (customAssets.length -1) && customAssets.length != 1 ">Remove
+						</button>
+						<button  
+							class="btn btn-primary btn-lg" 
+							ng-show="$index == customAssets.length -1" 
+							ng-click="addCustomAsset()">Add
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</div>

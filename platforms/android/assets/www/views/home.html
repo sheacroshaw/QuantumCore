@@ -1,0 +1,62 @@
+<div >
+	<button class="btn btn-success" ng-show="hasPartial" ng-click="continuePartial()">Continue Partial Daily</button>
+	<table class="home">
+		<thead>
+			<tr class="header-row">
+				<td>Edit</td>
+
+				<td>Date</td>
+
+				<td>Shift</td>
+
+				<td>Rig</td>
+
+				<td>Hole</td>
+
+				<td>Depth From</td>
+
+				<td>Depth To</td>
+
+				<td>Job</td>
+
+				<td>Client Approved</td>
+
+				<!-- <td>Delete</td> -->
+
+				<td>Resend Button</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="r in records">
+				<td>
+					<button ng-click="editDaily($index)">Edit</button>
+				</td>
+
+				<td>{{r.date}}</td>
+
+				<td>{{r.Crew_Shift}}</td>
+
+				<td>{{r.Rig}}</td>
+
+				<td>{{r.Hole_Number}}</td>
+
+				<td>{{r.Depth_From}}</td>
+
+				<td>{{r.Depth_To}}</td>
+
+				<td>{{r.Job}}</td>
+
+				<td>{{r.Approved}}</td>
+
+				<!-- <td>
+					<button ng-click="deleteDaily($index)">Delete</button>
+				</td> -->
+
+				<td>
+					<button ng-click="resend($index)">Resend</button>
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+</div>

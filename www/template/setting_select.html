@@ -1,0 +1,113 @@
+<div>
+	<table class="shift-detail table">
+		<thead>
+			<!-- <tr class="bolded-header"> -->
+			<tr class="header-row">
+				<td colspan="2" class="text-left">Choose Options</td>
+				<td class="spacer">&nbsp;</td>
+				<td>Currently Set</td>
+			</tr>
+		</thead>
+		<tbody>	
+			<tr>
+				<td>Rig</td>
+				<td>
+					<select 
+						id="selectedRig"
+						ng-model="selectedDetails.ids.selectedRig"
+						ng-options="r.Id as r.Name for r in rigs">
+						<option value="">Select Rig</option>
+			    	</select>
+					<!-- <input type="text" ng-model="details.rig"> -->
+				</td>
+				<td></td>
+				<td>{{details.names.selectedRigName}}</td>
+			</tr>
+			<tr>
+				<td>Client</td>
+				<td>
+					<!-- <input type="text" ng-model="details.client"> -->
+					<select 
+						id="selectedClient"
+						ng-model="selectedDetails.ids.selectedClient" 
+						ng-options="k as v.name for (k , v) in picklist">
+						<option value="">Select Client</option>
+			    	</select><!-- {{selectedClient}} -->
+				</td>
+				<td></td>
+				<td>{{details.names.selectedClientName}}</td>
+			</tr>
+
+			<tr>
+				<td>Contract</td>
+				<td>
+					<!-- <input type="text" ng-model="details.job"> -->
+					<select 
+						id="selectedContract"
+						ng-model="selectedDetails.ids.selectedContract" 
+						ng-options="k as v.name for (k , v) in picklist[selectedDetails.ids.selectedClient].contracts">
+						<option value="">Select Job</option>
+			    	</select>
+				</td>
+				<td></td>
+				
+				<td>{{details.names.selectedContractName}}</td>
+			</tr>
+			<tr>
+				<td>Job</td>
+				<td>
+					<!-- <input type="text" ng-model="details.contract"> -->
+					<select
+						id="selectedJob" 
+						ng-model="selectedDetails.ids.selectedJob" 
+						ng-options="k as v.name for (k , v) in picklist[selectedDetails.ids.selectedClient].contracts[selectedDetails.ids.selectedContract].jobs">
+						<option value="">Select Contract</option>
+			    	</select><!-- {{selectedContract}} -->
+				</td>
+				<td></td>
+				<td>{{details.names.selectedJobName}}</td>
+			</tr>
+
+			<tr>
+				<td>Location</td>
+				<td>
+					<!-- <input type="text" ng-model="details.location"> -->
+					<select 
+						id="selectedLocation" 
+						ng-model="selectedDetails.ids.selectedLocation" 
+						ng-options="k as v.name for (k , v) in picklist[selectedDetails.ids.selectedClient].contracts[selectedDetails.ids.selectedContract].jobs[selectedDetails.ids.selectedJob].locations">
+						<option value="">Select Location</option>
+			    	</select><!-- {{selectedLocation}} -->
+				</td>
+				<td></td>
+				<td>{{details.names.selectedLocationName}}</td>
+			</tr>
+			<tr>
+				<td>Shift</td>
+				<td>
+					<!-- <input type="text" ng-model="details.location"> -->
+					<select id="selectedShift" ng-model="selectedDetails.ids.selectedShift">
+						<option value="">Select Shift</option>
+						<option value="Day">Day</option>
+						<option value="Night">Night</option>
+						<option value="Swing">Swing</option>
+			    	</select><!-- {{selectedShift}} -->
+				</td>
+				<td></td>
+				<td>{{details.names.selectedShiftName}}</td>
+				<!-- <td>Date</td> -->
+			</tr>
+			<!-- <tr>
+				<td>Site</td>
+				<td><input type="text" ng-model="details.site"></td>
+			</tr> -->
+			<tr>
+				<td colspan="4" class="left-button">
+					<button class="btn btn-primary btn-lg" ng-click="saveShift()">Save Shift</button>
+					<span id="confirm-shift-saved"></span>
+				</td>				
+			</tr>
+		</tbody>
+	</table>
+	
+</div>

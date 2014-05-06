@@ -1,0 +1,279 @@
+<div>	
+	<table class="table">
+		<tr class="header-row">
+			<td>Rig</td>
+			<td>Client</td>
+			<td>Job</td>
+			<td>Contract</td>
+		</tr>
+		<tr>
+			<td>{{details.names.selectedRigName}}</td>
+			<td>{{details.names.selectedClientName}}</td>
+			<td>{{details.names.selectedJobName}}</td>
+			<td>{{details.names.selectedContractName}}</td>
+		</tr>
+		<tr class="header-row">
+			<td>Location</td>
+			<td>Shift</td>
+			<td>Date</td>
+		</tr>
+		<tr>
+			<td>{{details.names.selectedLocationName}}</td>
+			<td>{{details.names.selectedShiftName}}</td>
+			<td> 
+				{{details.names.date | date:"MM/dd/yyyy"}}
+		  </td>
+		</tr>		
+	</table>
+	<div class="review-container">
+		<div class="left">
+			<table class="half-table" style="width: 605px;" >
+				<thead>
+					<tr>
+						<td></td>
+						<td>Employee</td>
+						<td>Hours</td>
+						<td>Travel</td>
+						<td>Per Diem</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="e in assembledReview.Field_Employee">
+						<td>
+							<span class="driller-label" ng-show="!$index">DRILLER</span>
+							<span class="driller-label" ng-show="$index">HELPER</span>
+						</td>
+						<td>{{e.Name}}</td>
+						<td>{{e.Hours}}</td>
+						<td>{{e.Travel_Hours}}</td>
+						<td>{{e.Per_Diem}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="left">
+			<table class="half-table" style="width: 605px;">
+				<thead>
+					<tr>
+						<td colspan="2">Safety</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td  class="bold">An Injury or Incident Occured Today</td>
+						<td>
+							<span ng-show="assembledReview.Field_Main.Incident">Yes</span>
+							<span ng-show="!assembledReview.Field_Main.Incident">No</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="bold">Description</td>
+					</tr>
+					<tr>
+						<td>
+							{{ assembledReview.Field_Main.Incident_Description}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearfix"></div>
+		<div class="left">
+			<table class="full-table" style="width:1220px;">
+				<thead>
+					<tr>
+						<td colspan="6">Hole Information</td>
+					</tr>
+					<tr >
+						<td>Hole#</td>
+						<td>Size</td>
+						<td>Angle / Deg</td>
+						<td>From</td>
+						<td>To</td>
+						<td>Total</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="f in assembledReview.Field_Hole">
+						<td>{{f.Number}}</td>
+						<td>{{f.Size}}</td>
+						<td>{{f.Angle}}</td>
+						<td>{{f.Depth_From}}</td>
+						<td>{{f.Depth_To}}</td>
+						<td>{{ (f.Depth_To - f.Depth_From).toFixed(2) || 0   }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearfix"></div>
+		<div class="left">
+			<table class="full-table" style="width:1220px;">
+				<thead>
+					<tr>
+						<td colspan="10">Activities</td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td>From</td>
+						<td>To</td>
+						<td>Hours</td>
+						<td>Notes</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="a in assembledReview.Field_Activity">
+						<td>{{a.Description}}</td>
+						<td>{{a.Start_Time}}</td>
+						<td>{{a.End_Time}}</td>
+						<td>{{a.Hours}}</td>
+						<td>{{a.Notes}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearfix"></div>
+		<div class="left">
+			<table class="half-table" style="width: 605px;" >
+				<thead>
+					<tr>
+						<td colspan="3">Consumables</td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td>Qty</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in assembledReview.Field_Consumables">
+						<td>{{c.Consumable}}</td>
+						<td>{{c.Units}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="left">
+			<table class="half-table" style="width: 605px;">
+				<thead>
+					<tr>
+						<td colspan="3">Equipment </td>
+					</tr>
+					<tr>
+						<td>Name</td>						
+						<td>Hours</td>
+						<td>Rental</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="e in assembledReview.Field_Equipment" ng-show="e.Unit_Number && e.Equipment_Name">
+						<td>{{e.Equipment_Name}}</td>						
+						<td>{{e.Hours}}</td>
+						<td>
+							<span ng-show="e.Rental">yes</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>
+		<div class="clearfix"></div>
+		<div class="left">
+			<table class="half-table" style="width: 605px;">
+				<thead>
+					<tr>
+						<td colspan="3">Water Consumption</td>
+					</tr>
+					<tr>
+						<td># of Loads</td>
+						<td>Tank Size</td>
+						<td>Total Qty</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="w in assembledReview.Field_Water">
+						<td>{{w.Number_Loads}}</td>
+						<td>{{w.Tank_Size}}</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>
+		<div class="left">
+			<table class="half-table" style="width: 605px;">
+				<thead>
+					<tr>
+						<td colspan="5">Fuel Comsumption</td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td>Qty</td>
+						<td>Price/Gallon</td>
+						<td>Cost</td>
+						<td>Vendor</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="f in assembledReview.Field_Fuel">
+						<td>{{f.Description}}</td>
+						<td>{{f.Qty}}</td>
+						<td>{{f.Price}}</td>
+						<td>{{f.Cost}}</td>
+						<td>{{f.Vendor}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearfix"></div>
+		<div class="left">
+			<table class="full-table" style="width:1220px;">
+				<thead>
+					<tr>
+						<td colspan="6">Bit Usage</td>
+					</tr>
+					<tr>
+						<td>From</td>
+						<td>To</td>
+						<td>Description</td>
+						<td>Type</td>
+						<td>Size</td>
+						<td>Serial</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="b in assembledReview.Field_Bit">
+						<td>{{b.Depth_From}}</td>
+						<td>{{b.Depth_To}}</td>
+						<td>{{b.Description}}</td>
+						<td>{{b.Type}}</td>
+						<td>{{b.Size}}</td>
+						<td>{{b.Serial_Number}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="clearfix"></div>
+		<div class="left">
+			<!-- phonegap inline style...  -->
+			<table class="full-table" style="width:1220px;">
+				<thead>
+					<tr>
+						<td colspan="2">Notes</td>
+					</tr>
+					<tr>
+						<td class="bold">Internal</td>
+						<td class="bold">Client</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ assembledReview.Field_Main.internal_notes}}</td>
+						<td>{{ assembledReview.Field_Main.client_notes}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>		
+	<div class="review-buttons">
+		<div class="bottom-buttons">
+			<button id="sendfinal" class="btn btn-success btn-lg" ng-click="sendFinal()">Send Final</button>
+		</div>
+	</div>
+</div>

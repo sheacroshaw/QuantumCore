@@ -1,0 +1,97 @@
+	<div>
+	<!-- <h2>Hole Information</h2> -->
+	<div class="hole-info">
+		<br>
+		<span class="h2">Hole Information</span>
+		<button class="btn btn-primary btn-lg" ng-click="addInformation()">Add Hole</button>
+		<br><br>
+		<table class="table">
+			<tbody>
+				<tr class="header-row">
+					<td>Hole Number</td>
+					<td>Hole Size</td>
+					<td>Angle</td>
+					<td># of Runs</td>
+					<td>Starting Depth</td>
+					<td>Ending Depth</td>
+					<td>Total Depth</td>
+					<td></td>
+				</tr>
+				<tr ng-repeat="hole in information">
+					<td>
+						<input class="form-control input-lg" type="text" ng-model="hole.number">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="text" ng-model="hole.size">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="tel" ng-model="hole.angleDegree">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="tel" ng-model="hole.runs">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="tel" ng-model="hole.startingDepth">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="tel" ng-model="hole.endingDepth">
+					</td>
+					<td>
+						<!-- <input class="form-control input-lg" type="tel" ng-model="hole.totalDepth"> -->
+						<span class="pull-right">{{ (hole.endingDepth - hole.startingDepth).toFixed(2) || 0   }}</span>
+					</td>
+					<td>
+						<button class="btn btn-danger btn-lg" ng-click="removeInformation($index)">Remove</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="bit-usage">
+		<br>
+		<span class="h2">Bit Usage/Lost Tooling</span>	
+		<button class="btn btn-primary btn-lg" ng-click="addBit()">Add Row</button>
+		<br><br>
+		<table class="table">
+			<tbody>
+				<tr  class="header-row">
+					<td>From</td>
+					<td>To</td>
+					<td>Description</td>
+					<td>Type</td>
+					<td>Size</td>
+					<td>Serial</td>
+					<td></td>
+				</tr>
+				<tr ng-repeat="b in bit">
+					<td>
+						<input class="form-control input-lg" type="tel" ng-model="b.from">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="tel" ng-model="b.to">
+					</td>
+					<td class="description">
+						<input class="form-control input-lg" type="text" ng-model="b.description">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="text" ng-model="b.type">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="text" ng-model="b.size">
+					</td>
+					<td>
+						<input class="form-control input-lg" type="text" ng-model="b.serial">
+					</td>
+					<td>
+						<button class="btn btn-danger btn-lg" ng-click="removeBit($index)">Remove</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- <div class="bottom-buttons">
+		<a href="#/shift"><button class="btn btn-primary btn-lg">Back</button></a>
+		<a href="#/activities"><button class="btn btn-primary btn-lg">Next</button></a>
+	</div> -->
+</div>

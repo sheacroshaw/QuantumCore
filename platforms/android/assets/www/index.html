@@ -1,0 +1,143 @@
+<!doctype html>
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7 
+            remove the width=device-width and height=device-height attributes. 
+            See https://issues.apache.org/jira/browse/CB-4323 -->
+            <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+            <title>Quantum R</title>
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width">
+
+            <!-- build:css(.tmp) styles/main.css -->
+            <link rel="stylesheet" href="styles/main.css">
+            <!-- endbuild -->
+            <link rel="stylesheet" href="styles/remote.css">
+            <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+            <link rel="stylesheet" href="styles/main.css">
+            <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript" src="scripts/thirdParty/fastclick.js"></script>
+            <script type="application/javascript">
+            window.addEventListener('load', function() {
+                var textInput = document.querySelector('input');
+
+                FastClick.attach(document.body);
+                Array.prototype.forEach.call(document.getElementsByClassName('test'), function(testEl) {
+                    testEl.addEventListener('click', function() {
+                        textInput.focus();
+                    }, false)
+                });
+
+            }, false);
+
+            </script>
+            <script type="text/javascript" src="scripts/webdb/webdb.js"></script>
+            <script type="text/javascript" src="scripts/utils/utils.js"></script>
+            <script type="text/javascript" src="sim_data/employees.js"></script>
+
+        </head>
+        <body ng-app="quantumRApp">
+
+
+            <div class="top-buttons" ng-controller="Nav">
+
+
+                <a id="back-a" ng-href="#{{backHref}}">
+                    <button type="button" class="btn btn-default">
+                      <span class="glyphicon glyphicon-chevron-left"></span> 
+                  </button>
+              </a>
+              <a id="next-a" ng-href="#{{nextHref}}">
+                <button type="button" class="btn btn-default ">
+                  <span class="glyphicon glyphicon-chevron-right"></span> 
+                  </button>
+              </a>
+
+
+                <a class='' href="#home">
+                    <button id="home-btn"  class="btn btn-default ">Home</button>
+                </a>
+                <a class='' href="#Hole_Log">
+                    <button id="Hole_Log-btn"  class="btn btn-default ">Hole Log</button>
+                </a>            
+                <a class='' href="#employees">
+                    <button id="employees-btn"  class="btn btn-default ">Employees</button>
+                </a>
+                <a class='' href="#hole">
+                    <button id="hole-btn"  class="btn btn-default ">Hole and Bit Information</button>
+                </a>
+                <a class='' href="#activities">
+                    <button id="activities-btn"  class="btn btn-default ">Activities</button>
+                </a>
+                <a class='' href="#consumables">
+                    <button id="consumables-btn"  class="btn btn-default ">Consumables</button>
+                </a>
+                <a class='' href="#assets">
+                    <button id="assets-btn"  class="btn btn-default ">Assets / Fuel / Water</button>
+                </a>
+                <a class='' href="#notes">
+                    <button id="notes-btn"  class="btn btn-default ">Notes</button>
+                </a>
+                <a class='' href="#review">
+                    <button id="review-btn"  class="btn btn-default ">Review</button>
+                </a>
+                <a class='' href="#settings">
+                    <button id="settings-btn"  class="btn btn-default ">Settings</button>
+                </a>
+
+                <button ng-click="saveProgress()" class="btn btn-default">Save Progress</button>
+            </div>
+
+    <hr class="index-break">
+
+    <div style="padding-left:20px;">
+        <ng-view></ng-view>
+    </div>
+
+
+
+
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+    <!-- build:js scripts/modules.js -->
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <!-- endbuild -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-mobile.js"></script>
+    <script type="text/javascript" src="scripts/thirdParty/ng-mobile-menu.min.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/pre_shift.js"></script>
+    <script src="scripts/controllers/shift.js"></script>
+    <script src="scripts/controllers/hole.js"></script>
+    <script src="scripts/controllers/activities.js"></script>
+    <script src="scripts/controllers/consumables.js"></script>
+    <script src="scripts/controllers/assets.js"></script>
+    <script src="scripts/controllers/notes.js"></script>
+    <script src="scripts/controllers/review.js"></script>
+    <script src="scripts/controllers/settings.js"></script>
+    <script src="scripts/services/appData.js"></script>
+    <script src="scripts/services/Web_Service_Data.js"></script>
+    <script src="scripts/controllers/Hole_Log.js"></script>
+    <script src="scripts/directives/Setting_Select.js"></script>
+    <script src="scripts/directives/locked_details.js"></script>
+    <script src="scripts/directives/assetselect.js"></script>
+    <script src="scripts/directives/Asset_Select_No_Input.js"></script>
+    <script src="scripts/controllers/employees.js"></script>
+    <script src="scripts/directives/login.js"></script>
+    <script src="scripts/services/prepDataToSend.js"></script>
+    <!-- endbuild -->
+    <script src="scripts/controllers/nav.js"></script>
+    
+</body>
+</html>

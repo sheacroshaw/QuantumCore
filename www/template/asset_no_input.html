@@ -1,0 +1,38 @@
+<div>
+	<div class="assets">
+		<table class="table">
+			<tbody>
+				<tr>
+					<td></td>
+					<td>Unit #</td>
+					<td>Hours</td>
+					<td></td>
+				</tr>
+				<tr ng-repeat="a in assets" ng-show="a.Unit_Number">
+					<td>{{a.Equipment_Name}}</td>
+					<td>
+						<input disabled class="form-control input-lg" type="text" ng-model="a.Unit_Number">						
+					</td>
+					<td>
+						<input  class="form-control input-lg" type="tel" ng-model="a.Hours">
+					</td>
+					<td></td>
+				</tr>
+				<tr ng-repeat="a in customAssets" ng-show="a.Equipment_Name">
+					<td>
+						<input disabled class="form-control input-lg" type="text" placeholder="Custom" ng-model="a.Equipment_Name">
+					</td>
+					<td>
+						<input disabled class="form-control input-lg" type="text" ng-model="a.Unit_Number" >
+					</td>
+					<td>
+						<input  class="form-control input-lg" type="tel" ng-model="a.Hours">
+					</td>
+					<td ng-show="$index == customAssets.length -1">
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</div>

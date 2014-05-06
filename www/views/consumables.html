@@ -1,0 +1,69 @@
+<div>
+
+	<div class="act-con">
+
+		<div class="selector">
+
+			<div class="selector-form">
+				<form class="form-inline" role="form">
+				  <div class="form-group">
+				    
+				    <input type="text" class="form-control"  placeholder="Search" ng-model="searchConsumables">
+				  </div>
+				  <button type="submit" class="btn btn-primary pull-right"  ng-click="addCustomConsumable()">Add</button>
+				</form>
+			</div>
+			<div class="selector-list">
+				<div class="manufact">
+					<select ng-model="selectedManufacturers" ng-options="label for label in manufacturers"  name="" id="">
+					  		<option value="">All</option>
+					</select>
+				</div>
+				<div class="con-list-holder">
+					<ul  class="list-group">
+						<li 
+							class="list-group-item large-list-item" 
+							ng-repeat="c in consumablesList | filter:selectedManufacturers | filter:searchConsumables | orderBy:'Description'" 
+							ng-click="addConsumable(c)">
+							{{c.Description}}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="list">
+			<div class="list-header"></div>
+			<div class="list-list">
+			
+				<div class="table-contain">
+					<table class="table">
+						<tbody>
+							<tr class="header-row">
+								<td>Description</td>
+								<td>Qty</td>
+								<td></td>
+							</tr>
+							<tr ng-repeat="c in consumables">
+								<td class="first-consumable">
+									<input class="form-control input-lg" type="text" ng-show="c.isCustom" ng-model="c.Description">
+									<span ng-show="!c.isCustom">{{c.Description}}</span>
+								</td>
+								<td>
+									<input class="form-control input-lg" type="tel" ng-model="c.qty">
+								</td>
+								<td>
+									<button class="btn btn-danger btn-lg pull-right" ng-click="removeConsumable($index)">Remove</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- <div class="list-footer">
+					<a href="#/activities"><button class="btn btn-primary btn-lg " >Back</button></a>
+					<a href="#/assets"><button class="btn btn-primary btn-lg " >Next</button></a>
+				</div> -->
+			</div><!-- end of list-list-->
+		</div>		
+	</div>
+	
+</div>
