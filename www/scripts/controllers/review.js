@@ -224,6 +224,12 @@ angular.module('quantumRApp')
                 else {
                     assets[a].Rental = 0;
                 }
+                 if (assets[a].hours) {
+                    //assets[a].hours = 1;
+                } 
+                else {
+                    assets[a].hours = 0;
+                }
                 assetsToSend.push(assets[a]);
             }
         }
@@ -266,6 +272,7 @@ angular.module('quantumRApp')
                console.log('i sent',prepDataToSend(updatedAssets.assets || [], updatedAssets.customAssets || []),result);
                 alert("Daily Sent");
                  $('#sendfinal').removeClass('btn-warning').addClass('btn-success').text('Daily Sent');
+                 $scope.details.names.date = new Date();
                  resetSaveButton();
                  Appdata.setNotEdit();
                  Appdata.resetData();

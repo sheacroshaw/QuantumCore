@@ -24,6 +24,7 @@ angular.module('quantumRApp')
                 //console.log('this is the details obj', JSON.parse(rs.rows.item(0).shift_detail));
                 shiftDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
                 shiftDetails.names = JSON.parse(rs.rows.item(0).shift_detail).names;
+                shiftDetails.names.date = "";
                 $rootScope.$broadcast('WEB_DATA_UPDATED');
             }
         });
@@ -141,8 +142,7 @@ angular.module('quantumRApp')
         getAssets : getAssets,
         setAssets : setAssets,
         getLogin : getLogin,
-        setLogin: setLogin,
-        getDetailObjFromDB : getDetailObjFromDB
+        setLogin: setLogin
     }
 
   }]);
