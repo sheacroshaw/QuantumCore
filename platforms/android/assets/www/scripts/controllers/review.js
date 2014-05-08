@@ -5,6 +5,10 @@ angular.module('quantumRApp')
     
     $scope.appData = Appdata.getData();
     $scope.daily = angular.toJson(Appdata.getData(), true);
+
+    $scope.assets = Appdata.getAssets().assets;
+    $scope.customAssets = Appdata.getAssets().customAssets;
+
     $scope.assembledReview = {};
     //console.log('call it')
 
@@ -79,6 +83,8 @@ angular.module('quantumRApp')
            Device_UUID : did,
            Log_Number : 12345,
            date : resolvedDate || date,
+           Resolved_Date: resolvedDate,
+           Scope_Date: $scope.details.names.date,
            Crew_Shift : constants.names.selectedShiftName || "",
            Rig : constants.names.selectedRigName || "",
            Incident : data.shift.safety.incident ? 1 : 0,
