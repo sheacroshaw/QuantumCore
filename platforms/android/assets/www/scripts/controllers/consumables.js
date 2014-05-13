@@ -17,13 +17,14 @@ angular.module('quantumRApp')
 
     WebServiceData.getCodeObjFromDB();
     $scope.consumablesList = WebServiceData.getCodes().consumables;
-
+console.log("Consumable List", $scope.consumablesList);
     
     //add the std codes to the ones that may be on the contract
     var codesAndStandards = WebServiceData.getCodes();
     if( codesAndStandards.standardCodes 
         && codesAndStandards.standardCodes.consumables
         && typeof  codesAndStandards.standardCodes.consumables === 'object') {
+        
         $scope.consumablesList = $scope.consumablesList.concat(codesAndStandards.standardCodes.consumables);
 
         var inlist;

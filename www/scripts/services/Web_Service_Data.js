@@ -12,6 +12,7 @@ angular.module('quantumRApp')
             if (rs.rows.length) {
                 webData = JSON.parse(rs.rows.item(0).settings);
                 $rootScope.$broadcast('WEB_DATA_UPDATED');
+                console.log("did the WEB DATA UPDATED Happen?", webData);
             }
         });
     }
@@ -26,6 +27,7 @@ angular.module('quantumRApp')
                 shiftDetails.names = JSON.parse(rs.rows.item(0).shift_detail).names;
                 shiftDetails.names.date = "";
                 $rootScope.$broadcast('WEB_DATA_UPDATED');
+                console.log("is it this one?");
             }
         });
     }
@@ -37,9 +39,14 @@ angular.module('quantumRApp')
         if (shiftDetails.ids.selectedContract && webData.codes[shiftDetails.ids.selectedContract]){
             currentCodes = webData.codes[shiftDetails.ids.selectedContract];
             currentCodes.standardCodes = webData.stdCodes;
-            //console.log('da codes', webData.codes[shiftDetails.ids.selectedContract]);
+
+            console.log('da codes', webData.codes[shiftDetails.ids.selectedContract]);
+
+
+
         }
         else {
+            console.log("here is the else");
             currentCodes = {
                 "activities" : [],
                 "consumables" : [],

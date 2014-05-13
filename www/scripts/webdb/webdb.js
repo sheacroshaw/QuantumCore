@@ -103,6 +103,7 @@
     webdb.prototype.getCodes = function(callback){
         var stmt = this.statements['select_codes'];
         this.select(stmt, callback);
+        console.log("webdb.js -> getCodes");
     }; // end getCodes
     
 

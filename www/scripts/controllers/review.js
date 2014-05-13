@@ -121,18 +121,22 @@ $scope.checkit = function  () {
         $scope.picklist = WebServiceData.getWebServiceData().picklist;
         $scope.rigs = WebServiceData.getWebServiceData().rigs;
         $scope.details = WebServiceData.getDetail();
+  
+
    }
    justGetItAll();
-    
+  
     $scope.$on('WEB_DATA_UPDATED', function(){
+
         justGetItAll();
         $scope.$apply();
+        
     })
 
-
+console.log("Assembled: ", $scope.details);  
 
     var updatedAssets = Appdata.getData().assets;
-    console.log('these are the assets', updatedAssets)
+    //console.log('these are the assets', updatedAssets)
 
     try{
         var customAssetsLength = 0;
@@ -156,7 +160,11 @@ $scope.checkit = function  () {
     
 
 
+
+
+
     function prepDataToSend (assets, customAssets) {
+        console.log("Why here?");
         var constants = WebServiceData.getDetail()
         var data = Appdata.getData();
         var currDate = new Date()
@@ -191,7 +199,7 @@ $scope.checkit = function  () {
            Resolved_Date: resolvedDate,
            Scope_Date: $scope.details.names.date,
            Crew_Shift : constants.names.selectedShiftName || "",
-           Rig : constants.names.selectedRigName || "",
+           Rig : $scope.details.names.selectedRigName || "",
            Incident : data.shift.safety.incident ? 1 : 0,
            Incident_Description : data.shift.safety.incident_description,
            Job : constants.names.selectedJobName || "",
@@ -359,7 +367,7 @@ $scope.checkit = function  () {
 
         };
     }//end prepDataToSend
-
+//
 
 
     function clearPartials () {
@@ -371,6 +379,14 @@ $scope.checkit = function  () {
     to handle async getting of the assets before sticking them
     on the obj on the way out */
     $scope.sendFinal = function(){
+
+
+        if (!$scope.details.names.selectedRigName) { 
+           alert("No Rig: Please set in settings");
+        } else { 
+            
+        
+
 
         //$('#sending').show();
         $('#sendfinal').removeClass('btn-success').addClass('btn-warning').text('Sending');
@@ -409,7 +425,7 @@ $scope.checkit = function  () {
             resetSaveButton()
         }
 
-        
+        } // end if the rig is not set. 
 
     };//end sendFinal 
 
@@ -425,7 +441,7 @@ $scope.checkit = function  () {
     }
 
 
-
+//alert($scope.assembledReview.Field_Main);
 
 
   }]);

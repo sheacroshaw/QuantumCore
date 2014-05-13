@@ -435,6 +435,7 @@
 /home/shea/sites/QuantumR/platforms/android/assets/www/res/screen/android/screen-mdpi-portrait.png \
 /home/shea/sites/QuantumR/platforms/android/assets/www/res/screen/android/screen-hdpi-landscape.png \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins/topcoat \
+/home/shea/sites/QuantumR/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins/topcoat/README.md \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins/topcoat/font \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins/topcoat/css \
@@ -445,6 +446,8 @@
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins/topcoat/font/SourceSansPro-Semibold.otf \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins/topcoat/css/topcoat-mobile-light.min.css \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins/topcoat/img/hamburger_dark.svg \
+/home/shea/sites/QuantumR/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
+/home/shea/sites/QuantumR/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/css/index.css \
 /home/shea/sites/QuantumR/platforms/android/assets/www/sim_data/web.html \
 /home/shea/sites/QuantumR/platforms/android/assets/www/sim_data/lastten.html \

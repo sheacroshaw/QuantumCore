@@ -9,6 +9,111 @@ angular.module('quantumRApp')
     $scope.assets = Appdata.getAssets().assets;
     $scope.customAssets = Appdata.getAssets().customAssets;
 
+
+
+
+
+
+    var asset = function(){
+        this.name = null;
+        this.unit = null;
+        this.Hours = null;
+        this.Rental = 0;
+        this.Unit_Number = null;
+    };
+
+    // $scope.assets = Appdata.getAssets().assets;
+    // $scope.customAssets = Appdata.getAssets().customAssets;
+   
+    $scope.addCustomAsset = function () {
+        $scope.customAssets.push(new asset());
+    };
+ 
+
+
+
+$scope.checkit = function  () {
+        WebServiceData.getAssets(function(tx,rs){
+
+            if (rs.rows.length) {
+
+               var dbAssets = JSON.parse(rs.rows.item(0).assets).assets;
+               var dbCustomAssets = JSON.parse(rs.rows.item(0).assets).customAssets;
+
+            console.log('INITIALLY', dbAssets, dbCustomAssets )
+
+                combineValues(  $scope.assets,dbAssets);
+                combineValues( $scope.customAssets, dbCustomAssets );
+
+                var custs = [];
+                for(var c in $scope.customAssets){
+                    custs.push($scope.customAssets[c]['Equipment_Name']);
+                }
+                console.log('the custs', custs)
+
+                for(var c in custs){
+                    for (var s in  $scope.assets){
+
+                        console.log(c, ' ==  ' ,$scope.assets[s]['Equipment_Name']);
+
+                        if (custs[c] == $scope.assets[s]['Equipment_Name']) {
+                            $scope.assets.splice($scope.assets.indexOf($scope.assets[s]),1);
+                        }
+                    }
+                }
+
+                if(!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            }
+            else {
+                console.log('nopeeeee')
+            }
+        });      
+    }
+    $scope.checkit();
+
+
+ function combineValues (daily,settings) {
+        for (var s in settings){
+            var found = false;
+            for (var d in daily ){
+                if (settings[s]['Equipment_Name'] == daily[d]['Equipment_Name']){
+                    found = true;
+                    daily[d]['Unit_Number'] = settings[s]['Unit_Number'];
+                    daily[d]['Rental'] = settings[s]['Rental'];
+                }
+            }
+            if(!found){
+                daily.push(settings[s])
+            } 
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $scope.assembledReview = {};
     //console.log('call it')
 
@@ -16,18 +121,22 @@ angular.module('quantumRApp')
         $scope.picklist = WebServiceData.getWebServiceData().picklist;
         $scope.rigs = WebServiceData.getWebServiceData().rigs;
         $scope.details = WebServiceData.getDetail();
+  
+
    }
    justGetItAll();
-    
+  
     $scope.$on('WEB_DATA_UPDATED', function(){
+
         justGetItAll();
         $scope.$apply();
+        
     })
 
-
+console.log("Assembled: ", $scope.details);  
 
     var updatedAssets = Appdata.getData().assets;
-    console.log('these are the assets', updatedAssets)
+    //console.log('these are the assets', updatedAssets)
 
     try{
         var customAssetsLength = 0;
@@ -51,7 +160,11 @@ angular.module('quantumRApp')
     
 
 
+
+
+
     function prepDataToSend (assets, customAssets) {
+        console.log("Why here?");
         var constants = WebServiceData.getDetail()
         var data = Appdata.getData();
         var currDate = new Date()
@@ -86,7 +199,7 @@ angular.module('quantumRApp')
            Resolved_Date: resolvedDate,
            Scope_Date: $scope.details.names.date,
            Crew_Shift : constants.names.selectedShiftName || "",
-           Rig : constants.names.selectedRigName || "",
+           Rig : $scope.details.names.selectedRigName || "",
            Incident : data.shift.safety.incident ? 1 : 0,
            Incident_Description : data.shift.safety.incident_description,
            Job : constants.names.selectedJobName || "",
@@ -254,7 +367,7 @@ angular.module('quantumRApp')
 
         };
     }//end prepDataToSend
-
+//
 
 
     function clearPartials () {
@@ -266,6 +379,14 @@ angular.module('quantumRApp')
     to handle async getting of the assets before sticking them
     on the obj on the way out */
     $scope.sendFinal = function(){
+
+
+        if (!$scope.details.names.selectedRigName) { 
+           alert("No Rig: Please set in settings");
+        } else { 
+            
+        
+
 
         //$('#sending').show();
         $('#sendfinal').removeClass('btn-success').addClass('btn-warning').text('Sending');
@@ -304,7 +425,7 @@ angular.module('quantumRApp')
             resetSaveButton()
         }
 
-        
+        } // end if the rig is not set. 
 
     };//end sendFinal 
 
@@ -320,7 +441,7 @@ angular.module('quantumRApp')
     }
 
 
-
+//alert($scope.assembledReview.Field_Main);
 
 
   }]);

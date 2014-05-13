@@ -158,14 +158,16 @@
 						<td colspan="3">Equipment </td>
 					</tr>
 					<tr>
-						<td>Name</td>						
+						<td>Name</td>
+						<td>Unit #</td>						
 						<td>Hours</td>
 						<td>Rental</td>
 					</tr>
 				</thead>
 				<tbody>
 					<tr ng-repeat="e in assembledReview.Field_Equipment" ng-show="e.Unit_Number && e.Equipment_Name">
-						<td>{{e.Equipment_Name}}</td>						
+						<td>{{e.Equipment_Name}}</td>	
+						<td>{{e.Unit_Number}}</td>					
 						<td>{{e.Hours}}</td>
 						<td>
 							<span ng-show="e.Rental">yes</span>
