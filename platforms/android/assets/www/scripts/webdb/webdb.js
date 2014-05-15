@@ -53,7 +53,9 @@
     /***
         the basic function that handle CRUD operations 
     ***/
+    // This happens when Refresh Data and Save Shift Happen
     webdb.prototype.insert = function(statement,setObj,cb){
+        console.log("all Inserts: ", statement, setObj);
         if (!cb) {
             var cb = function(){}
         }
@@ -63,14 +65,14 @@
                 function(){
                     cb(JSON.stringify(setObj))
                 },
-                function(t,e){console.log('nope',e)});
+                function(t,e){console.log('No Insert Happened',e)});
         });
     }; // end insert
 
     webdb.prototype.select = function(statement, cb){
         this.db.transaction(function(tx) {
             tx.executeSql(statement, [], cb,
-                function(t,e){console.log('nope',e)});
+                function(t,e){console.log('No Select Happened',e)});
         });
     }; // end select
 
@@ -80,7 +82,7 @@
 
         this.db.transaction(function(tx) {
             tx.executeSql(statement, [], callback,
-                function(t,e){console.log('nope',e)});
+                function(t,e){console.log('No Clear Happened',e)});
         });
     }; // end clearSettings
 
@@ -95,6 +97,7 @@
     webdb.prototype.setCodes = function(setObj, cb){
         var stmt = this.statements['insert_codes'];
         this.insert(stmt,setObj);
+        console.log("webdb.js setCodes", setObj);
     }; // end setCodes
     webdb.prototype.clearCodes = function (callback){
         var stmt = this.statements['clear_codes'];
@@ -109,6 +112,7 @@
 
     //assets
     webdb.prototype.setAssets = function(setObj, callback){
+        console.log("webdb.js setAssets", setObj);
         var stmt = this.statements['insert_assets'];
         this.insert(stmt,setObj,callback);
     }; // end setCodes
@@ -125,6 +129,7 @@
 
     //settings
     webdb.prototype.setSettings = function(setObj, cb){
+        console.log("webdb.js setSettings", setObj);
         var stmt = this.statements['insert_settings'];
         this.insert(stmt, setObj, cb);
     }; // end setSettings
@@ -141,9 +146,10 @@
 
     //shift details
     webdb.prototype.setShiftDetails = function(setObj, cb){
-        console.log('this is the setObj',setObj);
+        console.log('from webdb.js the setShiftDetails',setObj);
         var stmt = this.statements['insert_shift_detail'];
         this.insert(stmt, setObj,cb);
+
     };    
     webdb.prototype.clearDetail = function  (callback) {     
         console.log('clearing');   
@@ -175,7 +181,7 @@
 
     //locals info 
     webdb.prototype.setLocals = function(setObj, cb){
-        console.log('this is the setObj',setObj);
+        console.log('this is the setLocals',setObj);
         var stmt = this.statements['insert_locals'];
         this.insert(stmt, setObj,cb);
     };    

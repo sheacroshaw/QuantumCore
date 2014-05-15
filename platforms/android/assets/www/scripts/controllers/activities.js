@@ -18,7 +18,7 @@ angular.module('quantumRApp')
 
     WebServiceData.getCodeObjFromDB();
     $scope.activitiesList = WebServiceData.getCodes().activities;
-
+    console.log("But this one isn't blank", WebServiceData.getCodes());
     // get the activities and merge them, if existing, 
     // with presets 
     var codesAndStandards = WebServiceData.getCodes();

@@ -5,7 +5,7 @@ angular.module('quantumRApp')
     var webData = {};
     var shiftDetails = {"ids":{},"names":{}};
     var currentCodes = {};
-
+    //var selectedDetails = {"ids":{},"names":{}};
 
     function getSettingObjFromDB(){
         webdb.getSettings(function(tx,rs){
@@ -19,15 +19,18 @@ angular.module('quantumRApp')
     //try to initially get the settings out of the db
     getSettingObjFromDB();
 
+
+    // Happens on Save Shift
     function getDetailObjFromDB(){
         webdb.getDetail(function(tx,rs){
             if (rs.rows.length) {
-                //console.log('this is the details obj', JSON.parse(rs.rows.item(0).shift_detail));
+                console.log('DETAILS OBJECT >>>', JSON.parse(rs.rows.item(0).shift_detail));
+                //selectedDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
                 shiftDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
                 shiftDetails.names = JSON.parse(rs.rows.item(0).shift_detail).names;
                 shiftDetails.names.date = "";
                 $rootScope.$broadcast('WEB_DATA_UPDATED');
-                console.log("is it this one?");
+                //console.log(">>>>>>>>", selectedDetails.ids);
             }
         });
     }
@@ -36,6 +39,9 @@ angular.module('quantumRApp')
 
     function getCodeObjFromDB(){
         
+
+
+
         if (shiftDetails.ids.selectedContract && webData.codes[shiftDetails.ids.selectedContract]){
             currentCodes = webData.codes[shiftDetails.ids.selectedContract];
             currentCodes.standardCodes = webData.stdCodes;
@@ -46,7 +52,7 @@ angular.module('quantumRApp')
 
         }
         else {
-            console.log("here is the else");
+            console.log("running becuase no Contract Cost Codes");
             currentCodes = {
                 "activities" : [],
                 "consumables" : [],
@@ -79,6 +85,7 @@ angular.module('quantumRApp')
             if (rs.rows.length) {
                 //shiftDetails.ids = JSON.parse(rs.rows.item(0).shift_detail);
                 shiftDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
+                //selectedDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
                 shiftDetails.names = JSON.parse(rs.rows.item(0).shift_detail).names;
                 //$rootScope.$broadcast('WEB_DATA_UPDATED');
                 $rootScope.$apply()
@@ -91,7 +98,7 @@ angular.module('quantumRApp')
     //obj that it attached to the root scope and addargs may
     //be passed in to serve as a callback from the insert fn
     function getSettingObjFromWeb(cb, addargs, passToServer){
-        console.log(cb, addargs, passToServer, "this is the sent to server call")
+        //console.log(cb, addargs, passToServer, "this is the sent to server call")
         $http.post('https://meta.layne.com/QuantumR/request_settings.php',(passToServer || {}))
         .success(function (result) {
             $('#passfail').text('Success getting settings from web service')
@@ -137,6 +144,7 @@ angular.module('quantumRApp')
         },
         getDetail : function(){
             return shiftDetails;
+            //return selectedDetails;
         },
         getCodes : function(){
             return currentCodes;

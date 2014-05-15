@@ -25,7 +25,7 @@ angular.module('quantumRApp')
 
 
     // $scope.selected_employees = [];
-    $scope.selectedDetails = WebServiceData.getDetail().ids;
+    $scope.selectedDetails = WebServiceData.getDetail();
     $scope.selectedDetailsNames = WebServiceData.getDetail().names;
     justGetItAll();
 
@@ -34,7 +34,8 @@ angular.module('quantumRApp')
         $scope.rigs = WebServiceData.getWebServiceData().rigs;
         $scope.details = WebServiceData.getDetail();
    }
-    
+  
+
     $scope.$on('WEB_DATA_UPDATED', function(){
         justGetItAll();
         $scope.$apply();
@@ -51,6 +52,8 @@ angular.module('quantumRApp')
             },
             respondToShiftSet
         );
+
+        
         WebServiceData.getDetails();
         
     };
@@ -84,7 +87,7 @@ angular.module('quantumRApp')
     $scope.checkit = function  () {
         WebServiceData.getAssets(function(tx,rs){
             if (rs.rows.length) {
-                console.log('this is the details obj', JSON.parse(rs.rows.item(0).assets),$scope.assets,$scope.customAssets );
+                //console.log('this is the details obj', JSON.parse(rs.rows.item(0).assets),$scope.assets,$scope.customAssets );
                 $scope.assets = JSON.parse(rs.rows.item(0).assets).assets;
                 $scope.customAssets = JSON.parse(rs.rows.item(0).assets).customAssets;
 
@@ -116,7 +119,7 @@ angular.module('quantumRApp')
                 }
             }
             else {
-                console.log('nopeeeee')
+                console.log("didn't apply Asset Function")
             }
         });      
     }
