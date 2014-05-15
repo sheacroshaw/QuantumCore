@@ -5,7 +5,7 @@ angular.module('quantumRApp')
     var webData = {};
     var shiftDetails = {"ids":{},"names":{}};
     var currentCodes = {};
-
+    //var selectedDetails = {"ids":{},"names":{}};
 
     function getSettingObjFromDB(){
         webdb.getSettings(function(tx,rs){
@@ -24,12 +24,13 @@ angular.module('quantumRApp')
     function getDetailObjFromDB(){
         webdb.getDetail(function(tx,rs){
             if (rs.rows.length) {
-                console.log('this is the details obj', JSON.parse(rs.rows.item(0).shift_detail));
+                console.log('DETAILS OBJECT >>>', JSON.parse(rs.rows.item(0).shift_detail));
+                //selectedDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
                 shiftDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
                 shiftDetails.names = JSON.parse(rs.rows.item(0).shift_detail).names;
                 shiftDetails.names.date = "";
                 $rootScope.$broadcast('WEB_DATA_UPDATED');
-                console.log("is it this one?");
+                //console.log(">>>>>>>>", selectedDetails.ids);
             }
         });
     }
@@ -51,7 +52,7 @@ angular.module('quantumRApp')
 
         }
         else {
-            console.log("here is the else");
+            console.log("running becuase no Contract Cost Codes");
             currentCodes = {
                 "activities" : [],
                 "consumables" : [],
@@ -84,6 +85,7 @@ angular.module('quantumRApp')
             if (rs.rows.length) {
                 //shiftDetails.ids = JSON.parse(rs.rows.item(0).shift_detail);
                 shiftDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
+                //selectedDetails.ids = JSON.parse(rs.rows.item(0).shift_detail).ids;
                 shiftDetails.names = JSON.parse(rs.rows.item(0).shift_detail).names;
                 //$rootScope.$broadcast('WEB_DATA_UPDATED');
                 $rootScope.$apply()
@@ -142,6 +144,7 @@ angular.module('quantumRApp')
         },
         getDetail : function(){
             return shiftDetails;
+            //return selectedDetails;
         },
         getCodes : function(){
             return currentCodes;

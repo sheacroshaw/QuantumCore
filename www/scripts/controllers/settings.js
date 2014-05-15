@@ -3,6 +3,9 @@
 angular.module('quantumRApp')
   .controller('SettingsCtrl', ['$route','$scope','Appdata','WebServiceData',function ($route,$scope,Appdata,WebServiceData) {
     
+    // This is the Aussie Version
+
+
     function cb (){};
     //Get Settings From Web Service
     $scope.setSettings = function(){        
