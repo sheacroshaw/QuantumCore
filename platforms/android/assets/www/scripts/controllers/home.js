@@ -65,7 +65,7 @@ angular.module('quantumRApp')
         Appdata.setData(daily.data);
         Appdata.setIsEdit($scope.records[index].Id);
         WebServiceData.setDetails(daily.constants,function(){
-           WebServiceData.getDetailObjFromDB();
+           WebServiceData.getDetails();
            next.gotBack('details');
         });
         WebServiceData.setAssets({

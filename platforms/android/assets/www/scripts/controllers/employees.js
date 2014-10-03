@@ -37,8 +37,10 @@ angular.module('quantumRApp')
     set up the date stuff *****************************/
       if(!$scope.details.names.date) {
         $scope.details.names.date = new Date();
+        alert($scope.details.names.date);
+
       }
-  
+      //console.log("Scope Date", $scope.details.names.date);
       $scope.showWeeks = false;
       $scope.toggleWeeks = function () {
         $scope.showWeeks = ! $scope.showWeeks;

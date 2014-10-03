@@ -15,6 +15,9 @@ angular.module('quantumRApp')
     $scope.consumablesList = WebServiceData.getWebServiceData().consumables;
     $scope.consumables = Appdata.getConsumables();
 
+//    console.log("The Root c", WebServiceData.getWebServiceData());
+
+
     WebServiceData.getCodeObjFromDB();
     $scope.consumablesList = WebServiceData.getCodes().consumables;
 console.log("Consumable List", $scope.consumablesList);
@@ -27,6 +30,7 @@ console.log("Consumable List", $scope.consumablesList);
 
     //add the std codes to the ones that may be on the contract
     var codesAndStandards = WebServiceData.getCodes();
+    console.log("Standard consumables", codesAndStandards);
     if( codesAndStandards.standardCodes 
         && codesAndStandards.standardCodes.consumables
         && typeof  codesAndStandards.standardCodes.consumables === 'object') {
