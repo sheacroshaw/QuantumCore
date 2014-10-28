@@ -193,7 +193,8 @@ td[colspan="10"] {
 
 .header-row td, .act-table-selected tr.header-row td, .home tr.header-row td {
   border-bottom: 2px solid silver;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size:12px; }
 
 .right-col {
   max-height: 600px;
@@ -230,7 +231,8 @@ td[colspan="10"] {
     min-width: 100px; }
   .home tbody tr td {
     border-bottom: 1px solid silver;
-    padding: 2px 5px; }
+    padding: 2px 5px; 
+    font-size:12px;}
 
 .spacer {
   min-width: 15px; }

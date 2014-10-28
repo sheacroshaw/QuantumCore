@@ -63,6 +63,7 @@
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular-mocks/bower.json \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/angular.min.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/angular.js \
+/home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/angular-route.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/bower.json \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular-resource/angular-resource.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular-resource/README.md \

@@ -9,7 +9,7 @@ angular.module('quantumRApp')
     var did = typeof device === 'undefined' ? "" : device.uuid || "";
 
     if($scope.getRecords){
-    	$http.get('https://meta.layne.com/QuantumR/request_submits.php?id='+did)
+    	$http.get('https://meta.layne.com/QuantumR/request_submits_admin.php?id='+did)
     	.success(function(data){
     		$scope.records = data;
     		$scope.getRecords = false;
@@ -23,7 +23,39 @@ angular.module('quantumRApp')
         });
     }
 
+
+    $scope.supervisorApprove = function (didid) { 
+        console.log("running super admin");
+       // var did = 23;
+
+        $http.post(
+                'https://meta.layne.com/QuantumR/send_to_client_upgrade.php', {Daily_Id: didid})
+            .success(function(result){
+               $scope.get_field_dailies_again();
+                
+            })
+            .error(function(err){
+                console.log("Failed");
+                });
+     }
    
+
+     $scope.get_field_dailies_again = function () { 
+        $http.get('https://meta.layne.com/QuantumR/request_submits_admin.php?id='+did)
+        .success(function(data){
+            $scope.records = data;
+            $scope.getRecords = false;
+        })
+        .error(function(err){
+            $http.get('sim_data/lastten.html')
+            .success(function(data){
+                $scope.records = data;
+                $scope.getRecords = false;
+            });
+        });
+    }
+
+
 
     function Next(callbacks, action){
         var me = this;
