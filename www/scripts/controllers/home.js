@@ -9,7 +9,7 @@ angular.module('quantumRApp')
     var did = typeof device === 'undefined' ? "" : device.uuid || "";
 
     if($scope.getRecords){
-    	$http.get('https://meta.layne.com/QuantumR/request_submits_admin.php?id='+did)
+    	$http.get('https://meta.layne.com/QuantumR/request_submits.php?id='+did)
     	.success(function(data){
     		$scope.records = data;
     		$scope.getRecords = false;
@@ -41,7 +41,7 @@ angular.module('quantumRApp')
    
 
      $scope.get_field_dailies_again = function () { 
-        $http.get('https://meta.layne.com/QuantumR/request_submits_admin.php?id='+did)
+        $http.get('https://meta.layne.com/QuantumR/request_submits.php?id='+did)
         .success(function(data){
             $scope.records = data;
             $scope.getRecords = false;
