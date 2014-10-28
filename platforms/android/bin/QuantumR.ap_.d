@@ -19,6 +19,7 @@
 /home/shea/sites/QuantumR/platforms/android/assets/www/cordova_plugins.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/scripts \
 /home/shea/sites/QuantumR/platforms/android/assets/www/js \
+/home/shea/sites/QuantumR/platforms/android/assets/www/IDS Quantum Ticket Template WIP 10-8-14.xlsx \
 /home/shea/sites/QuantumR/platforms/android/assets/www/robots.txt \
 /home/shea/sites/QuantumR/platforms/android/assets/www/res \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins \
