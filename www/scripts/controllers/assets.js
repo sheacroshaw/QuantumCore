@@ -9,9 +9,13 @@ angular.module('quantumRApp')
     	this.name = null;
     	this.unit = null;
     	this.hours = null;
+        this.Fuel_Input = 0;
+        this.Water_Input = 0;
         this.Rental = 0;
         this.Unit_Number = null;
     };
+
+
 
     // $scope.assets = Appdata.getAssets().assets;
     // $scope.customAssets = Appdata.getAssets().customAssets;
@@ -75,6 +79,10 @@ angular.module('quantumRApp')
         });      
     }
     $scope.checkit();
+
+
+    console.log("Here are the Assets", $scope.assets);
+
 
     function combineValues (daily,settings) {
         for (var s in settings){
