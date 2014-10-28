@@ -6,6 +6,7 @@
 					<td></td>
 					<td>Unit #</td>
 					<td>Hours</td>
+					<td>Fuel</td>
 					<td></td>
 				</tr>
 				<tr ng-repeat="a in assets" ng-show="a.Unit_Number">
@@ -15,6 +16,9 @@
 					</td>
 					<td>
 						<input  class="form-control input-lg" type="tel" ng-model="a.hours">
+					</td>
+					<td>
+						<input  class="form-control input-lg" style='width:75px;' type="tel" ng-model="a.Fuel_Input">
 					</td>
 					<td></td>
 				</tr>
@@ -27,6 +31,9 @@
 					</td>
 					<td>
 						<input  class="form-control input-lg" type="tel" ng-model="a.hours">
+					</td>
+					<td>
+						<input  class="form-control input-lg" style='width:75px;' type="tel" ng-model="a.Fuel_Input">
 					</td>
 					<td ng-show="$index == customAssets.length -1">
 						
