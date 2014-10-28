@@ -155,12 +155,14 @@
 			<table class="half-table" style="width: 605px;">
 				<thead>
 					<tr>
-						<td colspan="3">Equipment </td>
+						<td colspan="6">Equipment </td>
 					</tr>
 					<tr>
 						<td>Name</td>
 						<td>Unit #</td>						
 						<td>Hours</td>
+						<td>Fuel</td>
+						<td>Water</td>
 						<td>Rental</td>
 					</tr>
 				</thead>
@@ -169,6 +171,8 @@
 						<td>{{e.Equipment_Name}}</td>	
 						<td>{{e.Unit_Number}}</td>					
 						<td>{{e.hours}}</td>
+						<td>{{e.Fuel_Input}}</td>
+						<td>{{e.Water_Input}}</td>
 						<td>
 							<span ng-show="e.Rental">yes</span>
 						</td>

@@ -31,37 +31,37 @@ angular.module('quantumRApp')
     	"consumables" : [],
     	"assets" : {
             "assets": [
-                {"id":1, "Rental":null, "Equipment_Name": "Welder","Unit_Number":null, "hours":null },
-                {"id":2, "Rental":null, "Equipment_Name": "Light Plant","Unit_Number":null, "hours":null },
-                {"id":3, "Rental":null, "Equipment_Name": "Crew Pickup","Unit_Number":null, "hours":null },
-                {"id":4, "Rental":null, "Equipment_Name": "Aux Water Pump","Unit_Number":null, "hours":null },
-                {"id":5, "Rental":null, "Equipment_Name": "Booster","Unit_Number":null, "hours":null },
-                {"id":6, "Rental":null, "Equipment_Name": "Flatbed Truck","Unit_Number":null, "hours":null },
-                {"id":7, "Rental":null, "Equipment_Name": "AUX Mud Pump","Unit_Number":null, "hours":null },
-                {"id":8, "Rental":null, "Equipment_Name": "Water Truck","Unit_Number":null, "hours":null },
-                {"id":9, "Rental":null, "Equipment_Name": "Drill Rig","Unit_Number":null, "hours":null },
-                {"id":10, "Rental":null, "Equipment_Name": "Backhoe","Unit_Number":null, "hours":null },
-                {"id":11, "Rental":null, "Equipment_Name": "Forklift","Unit_Number":null, "hours":null },
-                {"id":12, "Rental":null, "Equipment_Name": "Camera","Unit_Number":null, "hours":null }
+                {"id":1, "Rental":null, "Equipment_Name": "Welder","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":2, "Rental":null, "Equipment_Name": "Light Plant","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":3, "Rental":null, "Equipment_Name": "Crew Pickup","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":4, "Rental":null, "Equipment_Name": "Aux Water Pump","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":5, "Rental":null, "Equipment_Name": "Booster","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":6, "Rental":null, "Equipment_Name": "Flatbed Truck","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":7, "Rental":null, "Equipment_Name": "AUX Mud Pump","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":8, "Rental":null, "Equipment_Name": "Water Truck","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":9, "Rental":null, "Equipment_Name": "Drill Rig","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":10, "Rental":null, "Equipment_Name": "Backhoe","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":11, "Rental":null, "Equipment_Name": "Forklift","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":12, "Rental":null, "Equipment_Name": "Camera","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null }
 
             ],
             "dailyAssets": [
-                {"id":1, "Rental":null, "Equipment_Name": "Welder","Unit_Number":null, "hours":null },
-                {"id":2, "Rental":null, "Equipment_Name": "Light Plant","Unit_Number":null, "hours":null },
-                {"id":3, "Rental":null, "Equipment_Name": "Crew Pickup","Unit_Number":null, "hours":null },
-                {"id":4, "Rental":null, "Equipment_Name": "Aux Water Pump","Unit_Number":null, "hours":null },
-                {"id":5, "Rental":null, "Equipment_Name": "Booster","Unit_Number":null, "hours":null },
-                {"id":6, "Rental":null, "Equipment_Name": "Flatbed Truck","Unit_Number":null, "hours":null },
-                {"id":7, "Rental":null, "Equipment_Name": "AUX Mud Pump","Unit_Number":null, "hours":null },
-                {"id":8, "Rental":null, "Equipment_Name": "Water Truck","Unit_Number":null, "hours":null },
-                {"id":9, "Rental":null, "Equipment_Name": "Drill Rig","Unit_Number":null, "hours":null },
-                {"id":10, "Rental":null, "Equipment_Name": "Backhoe","Unit_Number":null, "hours":null },
-                {"id":11, "Rental":null, "Equipment_Name": "Forklift","Unit_Number":null, "hours":null },
-                {"id":12, "Rental":null, "Equipment_Name": "Camera","Unit_Number":null, "hours":null }
+                {"id":1, "Rental":null, "Equipment_Name": "Welder","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":2, "Rental":null, "Equipment_Name": "Light Plant","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":3, "Rental":null, "Equipment_Name": "Crew Pickup","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":4, "Rental":null, "Equipment_Name": "Aux Water Pump","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":5, "Rental":null, "Equipment_Name": "Booster","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":6, "Rental":null, "Equipment_Name": "Flatbed Truck","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":7, "Rental":null, "Equipment_Name": "AUX Mud Pump","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":8, "Rental":null, "Equipment_Name": "Water Truck","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":9, "Rental":null, "Equipment_Name": "Drill Rig","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":10, "Rental":null, "Equipment_Name": "Backhoe","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":11, "Rental":null, "Equipment_Name": "Forklift","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null },
+                {"id":12, "Rental":null, "Equipment_Name": "Camera","Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null }
 
             ],
             "customAssets": [
-                {"Equipment_Name":null, "Unit_Number": null, "hours":null}
+                {"Equipment_Name":null, "Unit_Number": null, "hours":null, "Fuel_Input": null, "Water_Input": null }
             ],
             "fuel": {
                 "redDiesel": {

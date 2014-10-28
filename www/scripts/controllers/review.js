@@ -19,6 +19,7 @@ angular.module('quantumRApp')
         this.unit = null;
         this.hours = null;
         this.Fuel_Input = 0;
+        this.Water_Input = 0;
         this.Rental = 0;
         this.Unit_Number = null;
     };
