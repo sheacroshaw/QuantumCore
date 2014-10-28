@@ -19,6 +19,7 @@
 /home/shea/sites/QuantumR/platforms/android/assets/www/cordova_plugins.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/scripts \
 /home/shea/sites/QuantumR/platforms/android/assets/www/js \
+/home/shea/sites/QuantumR/platforms/android/assets/www/IDS Quantum Ticket Template WIP 10-8-14.xlsx \
 /home/shea/sites/QuantumR/platforms/android/assets/www/robots.txt \
 /home/shea/sites/QuantumR/platforms/android/assets/www/res \
 /home/shea/sites/QuantumR/platforms/android/assets/www/plugins \
@@ -63,6 +64,7 @@
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular-mocks/bower.json \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/angular.min.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/angular.js \
+/home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/angular-route.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular/bower.json \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular-resource/angular-resource.js \
 /home/shea/sites/QuantumR/platforms/android/assets/www/bower_components/angular-resource/README.md \

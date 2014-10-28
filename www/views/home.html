@@ -1,9 +1,13 @@
 <div >
 	<button class="btn btn-success" ng-show="hasPartial" ng-click="continuePartial()">Continue Partial Daily</button>
+	
+	<b style='font-size:12px;'>Search:</b>&nbsp;&nbsp;<input size='20' ng-model="searchText" style='font-size:12px; width:400px;'><br><br>
 	<table class="home">
 		<thead>
 			<tr class="header-row">
 				<td>Edit</td>
+
+				<td>Shift Report<br>ID</td>
 
 				<td>Date</td>
 
@@ -24,13 +28,16 @@
 				<!-- <td>Delete</td> -->
 
 				<td>Resend Button</td>
+				<td>Supervisor Approval</td>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="r in records">
+			<tr ng-repeat="r in records | filter:searchText:records">
 				<td>
 					<button ng-click="editDaily($index)">Edit</button>
 				</td>
+
+				<td>{{r.Id}}</td>
 
 				<td>{{r.date}}</td>
 
@@ -46,14 +53,33 @@
 
 				<td>{{r.Job}}</td>
 
-				<td>{{r.Approved}}</td>
+				<td style='font-size:12px;'>
+							<div ng-if="r.Approved == '1'" style='font-size:12px; color:#1A8C04;'>
+								Yes
+							</div>
+							<div ng-if="r.Approved != '1'" style='font-size:12px; color:#900;'>
+								No
+							</div>
+
+				</td>
 
 				<!-- <td>
 					<button ng-click="deleteDaily($index)">Delete</button>
 				</td> -->
 
-				<td>
+				<td >
 					<button ng-click="resend($index)">Resend</button>
+				</td>
+				<td>
+					<div ng-if="r.Supervisor_Approved == '1'">
+						
+						<button class="btn btn-success btn-xs" >Approved</button>
+					</div>
+					<div ng-if="r.Supervisor_Approved != '1'">
+						
+						<button class="btn btn-xs" ng-click="supervisorApprove(r.Id)">Approve</button>
+					</div>
+
 				</td>
 
 			</tr>

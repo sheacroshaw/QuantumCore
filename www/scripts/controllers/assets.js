@@ -8,7 +8,7 @@ angular.module('quantumRApp')
     var asset = function(){
     	this.name = null;
     	this.unit = null;
-    	this.Hours = null;
+    	this.hours = null;
         this.Rental = 0;
         this.Unit_Number = null;
     };

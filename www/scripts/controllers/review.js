@@ -17,7 +17,7 @@ angular.module('quantumRApp')
     var asset = function(){
         this.name = null;
         this.unit = null;
-        this.Hours = null;
+        this.hours = null;
         this.Rental = 0;
         this.Unit_Number = null;
     };
@@ -54,7 +54,7 @@ $scope.checkit = function  () {
                 for(var c in custs){
                     for (var s in  $scope.assets){
 
-                        console.log(c, ' ==  ' ,$scope.assets[s]['Equipment_Name']);
+                        //console.log(c, ' ==  ' ,$scope.assets[s]['Equipment_Name']);
 
                         if (custs[c] == $scope.assets[s]['Equipment_Name']) {
                             $scope.assets.splice($scope.assets.indexOf($scope.assets[s]),1);
@@ -125,6 +125,11 @@ $scope.checkit = function  () {
 
    }
    justGetItAll();
+
+//console.log("Review Date", $scope.details.names.date);
+if($scope.details.names.date) {
+       console.log("Here is a date", $scope.details.names.date);
+      }
   
     $scope.$on('WEB_DATA_UPDATED', function(){
 
@@ -203,6 +208,11 @@ console.log("Assembled: ", $scope.details);
            Incident : data.shift.safety.incident ? 1 : 0,
            Incident_Description : data.shift.safety.incident_description,
            Job : constants.names.selectedJobName || "",
+           Job_Id : constants.ids.selectedJob || "",
+           Client_Id : constants.ids.selectedClient || "",
+           Contract_Id : constants.ids.selectedContract || "",
+           Rig_Id : constants.ids.selectedRig || "",
+           Location_Id : constants.ids.selectedLocation || "",
            Location : constants.names.selectedLocationName || "",
            Client : constants.names.selectedClientName || "",
            client_notes : client_notes.replace(/"/g,'') || "",
@@ -237,7 +247,7 @@ console.log("Assembled: ", $scope.details);
                 End_Time : data.activities[actLength].to || "", 
                 Hours : data.activities[actLength].hours || 0, 
                 Notes : Notes.replace(/'/g,'').replace(/"/g,'') || "",
-                Cost_Code : data.activities[actLength].Cost_Code || "" 
+                Cost_Code : data.activities[actLength].Name || "" 
             }
             Field_Activity.unshift(tmpActivity);
         }

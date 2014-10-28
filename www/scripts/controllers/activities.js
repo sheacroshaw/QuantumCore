@@ -16,18 +16,37 @@ angular.module('quantumRApp')
     $scope.activitiesList = WebServiceData.getWebServiceData().activities;
     $scope.activities = Appdata.getActivities();
 
+   
+    
+
+
+   
+
+
     WebServiceData.getCodeObjFromDB();
     $scope.activitiesList = WebServiceData.getCodes().activities;
-    console.log("But this one isn't blank", WebServiceData.getCodes());
+
+    console.log("The Root a", WebServiceData.getCodes().activities);
+    console.log("Screw", WebServiceData.getCodes().activities);
+
+
+    //console.log("But this one isn't blank", WebServiceData.getCodes());
     // get the activities and merge them, if existing, 
     // with presets 
     var codesAndStandards = WebServiceData.getCodes();
-
+    //console.log("Standard act", codesAndStandards.standardCodes.activities);
     if( codesAndStandards.standardCodes 
         && codesAndStandards.standardCodes.activities
         && typeof codesAndStandards.standardCodes.activities === 'object') {
+        if (!$scope.activitiesList) { 
+            console.log("Sorry Not Set");
+        $scope.activitiesList = [];
+        }
 
+  // if ($scope.activitiesList) { 
         $scope.activitiesList = $scope.activitiesList.concat(codesAndStandards.standardCodes.activities);
+  //  }
+
     }
 
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('quantumRApp', ['shoppinpal.mobile-menu','ui.bootstrap'])
+angular.module('quantumRApp', ['shoppinpal.mobile-menu','ui.bootstrap', 'ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

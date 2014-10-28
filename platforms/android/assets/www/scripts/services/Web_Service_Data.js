@@ -9,6 +9,7 @@ angular.module('quantumRApp')
 
     function getSettingObjFromDB(){
         webdb.getSettings(function(tx,rs){
+            console.log("Going into DB?", tx);
             if (rs.rows.length) {
                 webData = JSON.parse(rs.rows.item(0).settings);
                 $rootScope.$broadcast('WEB_DATA_UPDATED');
@@ -38,8 +39,7 @@ angular.module('quantumRApp')
     getDetailObjFromDB();
 
     function getCodeObjFromDB(){
-        
-
+    console.log("All WebData", webData);
 
 
         if (shiftDetails.ids.selectedContract && webData.codes[shiftDetails.ids.selectedContract]){
@@ -52,7 +52,11 @@ angular.module('quantumRApp')
 
         }
         else {
+<<<<<<< HEAD
             console.log("running becuase no Contract Cost Codes");
+=======
+            console.log("running becuase no Contract Cost Codes", webData.stdCodes);
+>>>>>>> master
             currentCodes = {
                 "activities" : [],
                 "consumables" : [],
@@ -103,6 +107,7 @@ angular.module('quantumRApp')
         .success(function (result) {
             $('#passfail').text('Success getting settings from web service')
             cb.call(webdb,result,addargs);
+           // console.log("Uber Result", JSON.stringify(result));
         })
         .error(function(){            
              $http.get('sim_data/web.html',{})
