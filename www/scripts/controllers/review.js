@@ -197,7 +197,7 @@ console.log("Assembled: ", $scope.details);
 
         var client_notes = data.notes.client_notes ? data.notes.client_notes : " "; // replace(/'/g,'').replace(/"/g,'') || "",
         var internal_notes = data.notes.internal_notes ? data.notes.internal_notes : " "; //.replace(/'/g,'').replace(/"/g,'') || "",
-
+        var CustomAssets1 = { $scope.customAssets; }
         var Field_Main = {
            Responsible_Account : WebServiceData.getWebServiceData().office || "No Office Set",
            Device_UUID : did,
@@ -370,6 +370,7 @@ console.log("Assembled: ", $scope.details);
             "Field_Activity" : Field_Activity,
             "Field_Bit" : Field_Bit,
             "Field_Equipment" : assetsToSend,
+            "CustomAssets12" : $scope.customAssets,
             "Field_Employee" : Field_Employee,
             "Field_Consumables" : Field_Consumables,
             "Field_Fuel" : Field_Fuel,
