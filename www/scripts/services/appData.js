@@ -61,7 +61,7 @@ angular.module('quantumRApp')
 
             ],
             "customAssets": [
-                {"Equipment_Name":null, "Unit_Number": null, "hours":null, "Fuel_Input": null, "Water_Input": null }
+                {"Rental":null, "Equipment_Name":null, "Unit_Number": null, "hours":null, "Fuel_Input": null, "Water_Input": null }
             ],
             "fuel": {
                 "redDiesel": {
