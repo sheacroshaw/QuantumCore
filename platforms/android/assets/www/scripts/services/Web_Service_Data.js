@@ -52,11 +52,7 @@ angular.module('quantumRApp')
 
         }
         else {
-<<<<<<< HEAD
-            console.log("running becuase no Contract Cost Codes");
-=======
             console.log("running becuase no Contract Cost Codes", webData.stdCodes);
->>>>>>> master
             currentCodes = {
                 "activities" : [],
                 "consumables" : [],

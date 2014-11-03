@@ -12,12 +12,14 @@ angular.module('quantumRApp')
 
 
 
-
+    console.log("Here are the Customers: ", $scope.customAssets);
 
     var asset = function(){
         this.name = null;
         this.unit = null;
         this.hours = null;
+        this.Fuel_Input = 0;
+        this.Water_Input = 0;
         this.Rental = 0;
         this.Unit_Number = null;
     };
@@ -40,7 +42,7 @@ $scope.checkit = function  () {
                var dbAssets = JSON.parse(rs.rows.item(0).assets).assets;
                var dbCustomAssets = JSON.parse(rs.rows.item(0).assets).customAssets;
 
-            console.log('INITIALLY', dbAssets, dbCustomAssets )
+        //    console.log('INITIALLY', dbAssets, dbCustomAssets )
 
                 combineValues(  $scope.assets,dbAssets);
                 combineValues( $scope.customAssets, dbCustomAssets );
@@ -49,7 +51,7 @@ $scope.checkit = function  () {
                 for(var c in $scope.customAssets){
                     custs.push($scope.customAssets[c]['Equipment_Name']);
                 }
-                console.log('the custs', custs)
+            //    console.log('the custs', custs)
 
                 for(var c in custs){
                     for (var s in  $scope.assets){
@@ -128,7 +130,7 @@ $scope.checkit = function  () {
 
 //console.log("Review Date", $scope.details.names.date);
 if($scope.details.names.date) {
-       console.log("Here is a date", $scope.details.names.date);
+    //   console.log("Here is a date", $scope.details.names.date);
       }
   
     $scope.$on('WEB_DATA_UPDATED', function(){
@@ -138,12 +140,13 @@ if($scope.details.names.date) {
         
     })
 
-console.log("Assembled: ", $scope.details);  
+//console.log("Assembled: ", $scope.details);  
 
     var updatedAssets = Appdata.getData().assets;
     //console.log('these are the assets', updatedAssets)
 
     try{
+        /*
         var customAssetsLength = 0;
         if(updatedAssets.customAssets && updatedAssets.customAssets.length){
             customAssetsLength = updatedAssets.customAssets.length;
@@ -155,7 +158,8 @@ console.log("Assembled: ", $scope.details);
                 
             }
         }
-        
+        */
+     //   console.log("is this going or not");
 
         $scope.assembledReview = prepDataToSend(updatedAssets.assets, updatedAssets.customAssets);
     }
@@ -164,12 +168,12 @@ console.log("Assembled: ", $scope.details);
     }
     
 
-
+    console.log("Assembled Review", $scope.assembledReview);
 
 
 
     function prepDataToSend (assets, customAssets) {
-        console.log("Why here?");
+    //    console.log("Why here?");
         var constants = WebServiceData.getDetail()
         var data = Appdata.getData();
         var currDate = new Date()
@@ -344,6 +348,9 @@ console.log("Assembled: ", $scope.details);
         //[Total_Qty], [Number_Loads], [Tank_Size]
 
         var assetsToSend = [], show;
+        var customassetsToSend = [], show;
+
+
         for (var a in assets){
             show = (assets[a].Unit_Number)
             if (show){
@@ -363,11 +370,52 @@ console.log("Assembled: ", $scope.details);
             }
         }
 
+        for (var a in customAssets){
+
+            show = (customAssets[a].Unit_Number)
+            if (show){
+
+                if (customAssets[a].Rental) {
+                    customAssets[a].Rental = 1;
+                } 
+                else {
+                    customAssets[a].Rental = 0;
+                }
+                 if (customAssets[a].hours) {
+                    //assets[a].hours = 1;
+                } 
+                else {
+                    customAssets[a].hours = 0;
+                }
+                //a = a+14;
+                
+
+
+                customassetsToSend.push(customAssets[a]);
+
+                //console.log("List of Running Stuff ------------------- ", customassetsToSend);
+                //console.log("screw", customAssets[a]);
+
+            }
+        }
+        console.log("Where does it happen ", customassetsToSend);
+        var children = assetsToSend.concat(customassetsToSend);
+
+        var last_length = children.length -1;
+
+        console.log(last_length);
+
+//children.splice(last_length, 2); 
+//children.splice(,1);
+console.log("Children Length ", children);
+
+//var children = "12";
         return {
             "Field_Main" : Field_Main,
             "Field_Activity" : Field_Activity,
             "Field_Bit" : Field_Bit,
-            "Field_Equipment" : assetsToSend,
+          //  "Field_Equipment2" : assetsToSend,
+            "Field_Equipment" : children,
             "Field_Employee" : Field_Employee,
             "Field_Consumables" : Field_Consumables,
             "Field_Fuel" : Field_Fuel,
