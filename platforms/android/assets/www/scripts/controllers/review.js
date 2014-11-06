@@ -27,12 +27,6 @@ angular.module('quantumRApp')
     // $scope.assets = Appdata.getAssets().assets;
     // $scope.customAssets = Appdata.getAssets().customAssets;
    
-    $scope.addCustomAsset = function () {
-        $scope.customAssets.push(new asset());
-    };
- 
-
-
 
 $scope.checkit = function  () {
         WebServiceData.getAssets(function(tx,rs){
@@ -362,6 +356,12 @@ if($scope.details.names.date) {
                 }
                  if (assets[a].hours) {
                     //assets[a].hours = 1;
+                } 
+                if (!assets[a].Water_Input) {
+                    assets[a].Water_Input = 0;
+                } 
+                if (!assets[a].Fuel_Input) {
+                    assets[a].Fuel_Input = 0;
                 } 
                 else {
                     assets[a].hours = 0;

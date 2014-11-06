@@ -8,13 +8,13 @@ angular.module('quantumRApp')
       link: function postLink(scope, element, attrs) {
 
         var asset = function(){
-  	    	this.name = null;
-  	    	this.unit = null;
-  	    	this.hours = null;
-  	    };
+
+       };
 
   	    scope.addCustomAsset = function () {
-  	    	scope.customAssets.push(new asset());
+  	    	scope.customAssets.push({"id":13, "Rental":null, "Equipment_Name": null,"Unit_Number":null, "hours": null, "Fuel_Input": null, "Water_Input": null });
+
+         
   	    };
 
         scope.removeCustomAsset = function(index){

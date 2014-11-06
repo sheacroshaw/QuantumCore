@@ -28,6 +28,9 @@ angular.module('quantumRApp')
 
 
     // $scope.selected_employees = [];
+    console.log("I'm in the settings: !!!!! ");
+    console.log("From Setting ", $scope.customAssets);
+
     $scope.selectedDetails = WebServiceData.getDetail();
     $scope.selectedDetailsNames = WebServiceData.getDetail().names;
     justGetItAll();
@@ -72,7 +75,8 @@ angular.module('quantumRApp')
     $scope.assets = Appdata.getAssets().dailyAssets.slice(0);
     $scope.customAssets = Appdata.getAssets().customAssets;
 
-
+    console.log("From Setting 2 --------------------------->>>>", $scope.customAssets);
+    console.log("From Setting 3 --------------------------->>>>", $scope.assets);
     $scope.setAssets = function  () {
 
         console.log('assets called',$scope.assets,$scope.customAssets);

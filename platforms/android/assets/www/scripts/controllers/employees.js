@@ -18,7 +18,7 @@ angular.module('quantumRApp')
    	$scope.selected_employees = Appdata.getShift().employees;
     $scope.safety = Appdata.getShift().safety;
     $scope.details = WebServiceData.getDetail();
-    
+    console.log("From emps ", $scope.customAssets);
 
    	$scope.addEmployee = function(emp){
       emp.perdiem = null;

@@ -24,6 +24,9 @@ angular.module('quantumRApp')
 
 
     $scope.addCustomAsset = function () {
+
+        console.log("This is from assets.js ", $scope.customAssets);
+
     	$scope.customAssets.push(new asset());
     };
     $scope.addWater = function(){
