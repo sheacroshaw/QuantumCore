@@ -235,10 +235,11 @@ if($scope.details.names.date) {
         var actLength = data.activities.length;
         var Field_Activity = [];
         var tmpActivity;
+        $scope.totalActivityHours = 0;
         while (actLength--) {
 
             var Notes = data.activities[actLength].notes ? data.activities[actLength].notes : " ";// .replace(/'/g,'').replace(/"/g,'') || "";
-
+            $scope.totalActivityHours = $scope.totalActivityHours + data.activities[actLength].hours;
             tmpActivity = {
                 Description : data.activities[actLength].Description || "" , 
                 Start_Time : data.activities[actLength].from || "", 
@@ -249,6 +250,8 @@ if($scope.details.names.date) {
             }
             Field_Activity.unshift(tmpActivity);
         }
+
+        
 
         var bitLength = data.hole.bit.length;
         var Field_Bit = [];

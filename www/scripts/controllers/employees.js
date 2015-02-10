@@ -20,11 +20,24 @@ angular.module('quantumRApp')
     $scope.details = WebServiceData.getDetail();
     console.log("From emps ", $scope.customAssets);
 
-   	$scope.addEmployee = function(emp){
-      emp.perdiem = null;
-      emp.hours = null;
-      emp.travel = null;
-   		$scope.selected_employees.push(emp);
+   	$scope.addEmployee = function(emp, empType){
+      if (empType == "Old") {
+        emp.empType = empType; 
+        emp.perdiem = null;
+        emp.hours = null;
+        emp.travel = null;
+        console.log("Here is the Emp", emp);
+     		$scope.selected_employees.push(emp);
+      }
+      if (empType == "New") { 
+        emp = {};
+        emp.empType = empType; 
+        emp.perdiem = null;
+        emp.hours = null;
+        emp.travel = null;
+        emp.Name = null;
+        $scope.selected_employees.push(emp);
+      }
    	}
 
 

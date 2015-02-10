@@ -44,14 +44,14 @@
 			</div>
 			<div class="selector-list">
 				<ul  class="list-group">
-					<li class="list-group-item large-list-item" ng-repeat="c in employeeList | orderBy:c.Name | filter:searchEmployees" ng-click="addEmployee(c)">
+					<li class="list-group-item large-list-item" ng-repeat="c in employeeList | orderBy:c.Name | filter:searchEmployees" ng-click="addEmployee(c, 'Old')">
 						{{c.Name}}
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="list">
-			<div class="list-header"></div>
+			<div class="list-header" style='padding-top:10px;'><button class='btn btn-sm' ng-click="addEmployee('', 'New')">Add Custom</button></div>
 			<div class="list-list">			
 				<div class="table-contain">
 					<table class="table">
@@ -64,7 +64,12 @@
 								<td></td>
 							</tr>
 							<tr ng-repeat="e in selected_employees">
-								<td>{{e.Name}}</td>
+								<td>
+									<div ng-if="e.empType == 'Old'">{{e.Name}}</div>
+									<div ng-if="e.empType == 'New'"><input style='text-align:left; padding-left:3px;' type='text' ng-model="e.Name"></div>
+									
+
+								</td>
 								<td>
 									<input class="form-control input-lg" type="tel" ng-model="e.hours">
 								</td>
