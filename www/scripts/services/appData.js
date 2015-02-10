@@ -29,6 +29,7 @@ angular.module('quantumRApp')
         },
     	"activities" : [],
     	"consumables" : [],
+        "maintLilst" : [],
     	"assets" : {
             "assets": [
                 {"id":1, "Rental":null, "Equipment_Name": "Welder","Unit_Number":null, "hours":null },
@@ -196,6 +197,9 @@ angular.module('quantumRApp')
     };
 
     return {
+        getMaint : function() { 
+            return data.maintLilst;
+        },
     	getData : function(){
     		return data;
     	},

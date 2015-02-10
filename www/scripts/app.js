@@ -55,6 +55,10 @@ angular.module('quantumRApp', ['shoppinpal.mobile-menu','ui.bootstrap', 'ngRoute
         templateUrl: 'views/employees.html',
         controller: 'EmployeesCtrl'
       })
+      .when('/maint', {
+        templateUrl: 'views/maint.html',
+        controller: 'MaintCtrl'
+      })
       .otherwise({
         redirectTo: '/home'
       });

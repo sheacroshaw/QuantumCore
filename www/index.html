@@ -54,14 +54,14 @@
                   <span class="glyphicon glyphicon-chevron-right"></span> 
                   </button>
               </a>
-
-
                 <a class='' href="#home">
                     <button id="home-btn"  class="btn btn-default ">Home</button>
                 </a>
+                <!-- 
                 <a class='' href="#Hole_Log">
                     <button id="Hole_Log-btn"  class="btn btn-default ">Hole Log</button>
-                </a>            
+                </a> 
+                -->           
                 <a class='' href="#employees">
                     <button id="employees-btn"  class="btn btn-default ">Employees</button>
                 </a>
@@ -86,6 +86,9 @@
                 <a class='' href="#settings">
                     <button id="settings-btn"  class="btn btn-default ">Settings</button>
                 </a>
+                <a class='' href="#maint">
+                    <button id="maint-btn"  class="btn btn-default ">Maintenance</button>
+                </a>
 
                 <button ng-click="saveProgress()" class="btn btn-default">Save Progress</button>
             </div>
@@ -94,11 +97,7 @@
 
     <div style="padding-left:20px;">
         <ng-view></ng-view>
-    </div>
-
-
-
-
+    </div>      
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular/angular-route.js"></script>
@@ -135,6 +134,7 @@
     <script src="scripts/directives/assetselect.js"></script>
     <script src="scripts/directives/Asset_Select_No_Input.js"></script>
     <script src="scripts/controllers/employees.js"></script>
+    <script src="scripts/controllers/MaintCtrl.js"></script>
     <script src="scripts/directives/login.js"></script>
     <script src="scripts/services/prepDataToSend.js"></script>
     <!-- endbuild -->
