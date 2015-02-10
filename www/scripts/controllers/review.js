@@ -9,7 +9,7 @@ angular.module('quantumRApp')
     $scope.assets = Appdata.getAssets().assets;
     $scope.customAssets = Appdata.getAssets().customAssets;
 
-
+    console.log("--------------------!!!!!!!!!!!!!!!", $scope.assets);
 
 
     console.log("Here are the Customers: ", $scope.customAssets);
@@ -354,8 +354,10 @@ if($scope.details.names.date) {
                 else {
                     assets[a].Rental = 0;
                 }
-                 if (assets[a].hours) {
-                    //assets[a].hours = 1;
+                 if (!assets[a].hours) {
+                 //   console.log("---------------", assets[a].Unit_Number);
+                 //   console.log("---------------", assets[a].hours);
+                    assets[a].hours = 0;
                 } 
                 if (!assets[a].Water_Input) {
                     assets[a].Water_Input = 0;
@@ -363,9 +365,7 @@ if($scope.details.names.date) {
                 if (!assets[a].Fuel_Input) {
                     assets[a].Fuel_Input = 0;
                 } 
-                else {
-                    assets[a].hours = 0;
-                }
+               
                 assetsToSend.push(assets[a]);
             }
         }
@@ -407,8 +407,8 @@ if($scope.details.names.date) {
 
 //children.splice(last_length, 2); 
 //children.splice(,1);
-console.log("Children Length ", children);
-
+//alert(children[0].Unit_Number);
+//alert(children[0].hours);
 //var children = "12";
         return {
             "Field_Main" : Field_Main,

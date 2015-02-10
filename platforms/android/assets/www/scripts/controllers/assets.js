@@ -5,16 +5,17 @@ angular.module('quantumRApp')
     var water = function(){
     	this.loads = this.tankSize = null;
     };
+    /*
     var asset = function(){
     	this.name = null;
     	this.unit = null;
-    	this.hours = null;
+    	this.hours = 0;
         this.Fuel_Input = 0;
         this.Water_Input = 0;
         this.Rental = 0;
         this.Unit_Number = null;
     };
-
+*/
 
 
     // $scope.assets = Appdata.getAssets().assets;
