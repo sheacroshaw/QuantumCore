@@ -80,6 +80,7 @@ angular.module('quantumRApp')
             $('#confirm_asset_set').text('Assets Set');
         });
         Appdata.getData().assets.assets =  $scope.assets; 
+        Appdata.getData().assets.customAssets =  $scope.customAssets; 
     }
 
 

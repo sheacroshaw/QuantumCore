@@ -62,7 +62,7 @@ angular.module('quantumRApp')
 
             ],
             "customAssets": [
-                {"Equipment_Name":null, "Unit_Number": null, "hours":null}
+                {}
             ],
             "fuel": {
                 "redDiesel": {
@@ -221,6 +221,9 @@ angular.module('quantumRApp')
     	getAssets : function(){
     		return data.assets;
     	},
+        getCustomAssets2 : function(){
+            return data.customAssets;
+        },
     	getNotes : function(){
     		return data.notes;
     	},
